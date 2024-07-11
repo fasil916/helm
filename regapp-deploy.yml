@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 apiVersion: apps/v1 
 kind: Deployment
 metadata:
@@ -26,4 +27,34 @@ spec:
     type: RollingUpdate
     rollingUpdate:
       maxSurge: 1
+=======
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: valaxy-regapp
+  labels: 
+     app: regapp
+
+spec:
+  replicas: 2 
+  selector:
+    matchLabels:
+      app: regapp
+
+  template:
+    metadata:
+      labels:
+        app: regapp
+    spec:
+      containers:
+      - name: regapp
+        image: valaxy/regapp
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+>>>>>>> e4238c6d03934d0ec05f3a2123fb36e7a523b088
       maxUnavailable: 1
