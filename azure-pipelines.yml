@@ -24,12 +24,7 @@ steps:
   inputs:
     targetType: 'inline'
     script: 'helm version'
-- task: HelmDeploy@1
+- task: Bash@3
   inputs:
-    connectionType: 'Kubernetes Service Connection'
-    kubernetesServiceConnection: 'azuedevops-kube'
-    namespace: 'default'
-    command: 'install'
-    chartType: 'FilePath'
-    chartPath: 'helm-chart/fasilchart'
-    chartVersion: '$(Build.BuildId)'
+    targetType: 'inline'
+    script: 'helm package ./helm-chart/fasilchart'
