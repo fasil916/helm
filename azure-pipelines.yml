@@ -8,7 +8,8 @@ trigger:
 
 pool:
   name: default 
-
+variables:
+  IMAGE_TAG: $(Build.BuildId)
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
