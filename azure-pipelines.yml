@@ -30,7 +30,7 @@ steps:
     script: 'helm package ./helm-chart/fasilchart'
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '$(agent.builddirectory)'
+    SourceFolder: '$(Build.SourcesDirectory)'
     Contents: '**/*.tgz'
     TargetFolder: '$(build.artifactstagingdirectory)'
 - task: PublishBuildArtifacts@1
